@@ -1,9 +1,8 @@
-export default function Home() {
+export default function HomePage() {
   return (
-    <div style={{padding: 20, textAlign: 'center'}}>
-      <h1>Short Drama Reels</h1>
-      <p>✅ App is live!</p>
-      <p>Test the unlock button on: /episode/1</p>
+    <div style={{textAlign: 'center', padding: 50}}>
+      <h1>Short Drama Reels 🔥</h1>
+      <p>App is LIVE!</p>
     </div>
   )
 }
