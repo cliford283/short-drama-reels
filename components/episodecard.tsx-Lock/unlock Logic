@@ -1,0 +1,14 @@
+export default function EpisodeCard({ep, isUnlocked}: {ep: any, isUnlocked: boolean}) {
+  return (
+    <div className="bg-gray-900 p-4 rounded">
+      <h3 className="font-bold">{ep.title}</h3>
+      {ep.isFree || isUnlocked ? (
+        <button className="bg-green-600 px-3 py-1 rounded mt-2">Watch Now</button>
+      ) : (
+        <button className="bg-red-600 px-3 py-1 rounded mt-2">
+          Unlock for 🪙 {ep.coinPrice}
+        </button>
+      )}
+    </div>
+  )
+}
