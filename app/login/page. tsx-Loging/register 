@@ -1,0 +1,24 @@
+'use client'
+import { useState } from 'react'
+
+export default function Login() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const signup = async () => {
+    await fetch('/api/auth/signup', {
+      method: 'POST',
+      body: JSON.stringify({email, password})
+    })
+    alert('Account created!')
+  }
+
+  return (
+    <main className="bg-black text-white min-h-screen p-4">
+      <h1 className="text-2xl font-bold">Login / Sign Up</h1>
+      <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} className="bg-gray-800 p-2 rounded w-full mt-4"/>
+      <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} className="bg-gray-800 p-2 rounded w-full mt-2"/>
+      <button onClick={signup} className="bg-red-600 px-4 py-2 rounded mt-4 w-full">Create Account</button>
+    </main>
+  )
+}
