@@ -1,9 +1,0 @@
-export default function Home() {
-  return (
-    <main className="bg-black text-white min-h-screen p-4">
-      <h1 className="text-2xl font-bold text-red-500">SHORT DRAMA REELS</h1>
-      <p className="mt-4">🪙 0 Coins</p>
-      <button className="bg-red-600 px-4 py-2 rounded mt-4">Buy Coins</button>
-    </main>
-  )
-}
