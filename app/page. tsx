@@ -1,8 +1,0 @@
-export default function HomePage() {
-  return (
-    <div style={{textAlign: 'center', padding: 50}}>
-      <h1>Short Drama Reels 🔥</h1>
-      <p>App is LIVE!</p>
-    </div>
-  )
-}
