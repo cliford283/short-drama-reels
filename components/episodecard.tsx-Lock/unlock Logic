@@ -1,13 +1,40 @@
-export default function EpisodeCard({ep, isUnlocked}: {ep: any, isUnlocked: boolean}) {
+"use client"
+
+import { useState } from "react"
+
+export default function EpisodeCard({ episodeId, userId, isLocked }: any) {
+  const [loading, setLoading] = useState(false)
+
+  async function handleUnlock() {
+    setLoading(true)
+    const res = await fetch('/api/unlock', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        userId: userId, 
+        episodeId: episodeId,
+        coinPrice: 10 
+      })
+    })
+    
+    const data = await res.json()
+    alert(data.message)
+    setLoading(false)
+    window.location.reload() // refresh to show unlocked
+  }
+
   return (
-    <div className="bg-gray-900 p-4 rounded">
-      <h3 className="font-bold">{ep.title}</h3>
-      {ep.isFree || isUnlocked ? (
-        <button className="bg-green-600 px-3 py-1 rounded mt-2">Watch Now</button>
-      ) : (
-        <button className="bg-red-600 px-3 py-1 rounded mt-2">
-          Unlock for 🪙 {ep.coinPrice}
+    <div>
+      {isLocked ? (
+        <button 
+          onClick={handleUnlock} 
+          disabled={loading}
+          style={{ padding: '10px', background: 'orange', color: 'white', border: 'none', borderRadius: '8px' }}
+        >
+          {loading ? "Unlocking..." : "Unlock for 10 coins"}
         </button>
+      ) : (
+        <p>✅ Unlocked</p>
       )}
     </div>
   )
