@@ -1,0 +1,25 @@
+const packages = [
+  {coins: 100, price: 1.99},
+  {coins: 550, price: 9.99},
+  {coins: 1200, price: 19.99},
+  {coins: 3000, price: 49.99},
+]
+
+export default function BuyCoins() {
+  return (
+    <main className="bg-black text-white min-h-screen p-4">
+      <h1 className="text-2xl font-bold">Buy Coins</h1>
+      <div className="grid gap-4 mt-4">
+        {packages.map(p => (
+          <div key={p.coins} className="border border-gray-700 p-4 rounded">
+            <p className="text-xl">🪙 {p.coins} Coins</p>
+            <p className="text-gray-400">${p.price} USD</p>
+            <button className="bg-red-600 w-full py-2 rounded mt-2">
+              Buy Now - Mock Payment
+            </button>
+          </div>
+        ))}
+      </div>
+    </main>
+  )
+}
